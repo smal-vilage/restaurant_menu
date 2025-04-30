@@ -26,7 +26,7 @@ async function renderMenu() {
     const sections = await loadCSVFromSheet('sections');
     const menuContainer = document.getElementById('menu');
 
-    for (const [name, desc, image] of sections) {
+    for (const [name,arabic_name, desc, image] of sections) {
         const sheetName = name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-_]/g, '');
         const products = await loadCSVFromSheet(sheetName);
 
@@ -36,7 +36,7 @@ async function renderMenu() {
             <div class="card shadow mb-4" id="section-${sheetName}">
                 <img src="${image}" class="card-img-top section-img" alt="${name}">
                 <div class="card-body">
-                    <h2 class="card-title">${name}</h2>
+                    <h2 class="card-title">${arabic_name}</h2>
                     <p class="card-text">${desc}</p>
                     <div class="row g-3" id="products-${sheetName}"></div>
                 </div>
