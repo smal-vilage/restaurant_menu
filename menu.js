@@ -33,7 +33,7 @@ async function renderMenu() {
         const sectionCard = document.createElement('div');
         sectionCard.className = 'col-12 section-card';
         sectionCard.innerHTML = `
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-4" id="section-${sheetName}">
                 <img src="${image}" class="card-img-top section-img" alt="${name}">
                 <div class="card-body">
                     <h2 class="card-title">${name}</h2>
@@ -43,7 +43,15 @@ async function renderMenu() {
             </div>
         `;
         menuContainer.appendChild(sectionCard);
-
+        
+        const navLinks = document.getElementById('nav-links');
+        const navItem = document.createElement('li');
+        navItem.className = 'nav-item';
+        navItem.innerHTML = `
+          <a class="nav-link" href="#section-${sheetName}">${name}</a>
+        `;
+        navLinks.appendChild(navItem);
+        
         const productRow = sectionCard.querySelector(`#products-${sheetName}`);
         for (const [pname, pdesc, price, pic1, pic2, pic3, pic4] of products) {
             const pics = [pic1, pic2, pic3, pic4]
