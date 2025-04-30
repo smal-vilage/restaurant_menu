@@ -1,7 +1,13 @@
 async function loadCSV(path) {
-    const response = await fetch(path);
-    const text = await response.text();
-    return text.trim().split('\n').map(line => line.split(','));
+    try {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error("File not found");
+        const text = await response.text();
+        return text.trim().split('\n').map(line => line.split(','));
+    } catch (e) {
+        console.warn(`Missing file: ${path}`);
+        return [];
+    }
 }
 
 async function renderMenu() {
@@ -10,29 +16,47 @@ async function renderMenu() {
 
     for (const [name, desc, image] of sections) {
         const sectionId = name.toLowerCase().replace(/\s+/g, '-');
-        const sectionDiv = document.createElement('div');
-        sectionDiv.innerHTML = `
-            <h2>${name}</h2>
-            <p>${desc}</p>
-            <img src="${image}" alt="${name}" width="200"/>
-            <div id="${sectionId}-products" class="products"></div>
-        `;
-        menuContainer.appendChild(sectionDiv);
-
         const products = await loadCSV(`data/${sectionId}.csv`);
-        const productsContainer = document.getElementById(`${sectionId}-products`);
-        
-        products.forEach(([pname, pdesc, price, pic1, pic2, pic3, pic4]) => {
-            const pics = [pic1, pic2, pic3, pic4].filter(Boolean).map(src => `<img src="${src}" width="100"/>`).join('');
-            const productDiv = document.createElement('div');
-            productDiv.innerHTML = `
-                <h3>${pname} - $${price}</h3>
-                <p>${pdesc}</p>
-                <div class="product-images">${pics}</div>
+
+        // Section Card
+        const sectionCard = document.createElement('div');
+        sectionCard.className = 'col-12 section-card';
+        sectionCard.innerHTML = `
+            <div class="card shadow">
+                <img src="${image}" class="card-img-top section-img" alt="${name}">
+                <div class="card-body">
+                    <h2 class="card-title">${name}</h2>
+                    <p class="card-text">${desc}</p>
+                    <div class="row" id="${sectionId}-products"></div>
+                </div>
+            </div>
+        `;
+        menuContainer.appendChild(sectionCard);
+
+        const productRow = sectionCard.querySelector(`#${sectionId}-products`);
+        for (const [pname, pdesc, price, pic1, pic2, pic3, pic4] of products) {
+            const pics = [pic1, pic2, pic3, pic4].filter(Boolean).map(src => `
+                <img src="${src}" class="img-fluid" alt="" />
+            `).join('');
+
+            const productCol = document.createElement('div');
+            productCol.className = 'col-md-6 product-card';
+
+            productCol.innerHTML = `
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">${pname} <span class="text-muted float-end">$${price}</span></h5>
+                        <p class="card-text">${pdesc}</p>
+                        <div class="product-images d-flex flex-wrap">
+                            ${pics}
+                        </div>
+                    </div>
+                </div>
             `;
-            productsContainer.appendChild(productDiv);
-        });
+            productRow.appendChild(productCol);
+        }
     }
 }
 
 document.addEventListener('DOMContentLoaded', renderMenu);
+
