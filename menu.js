@@ -20,7 +20,7 @@ async function renderMenu() {
     const menuContainer = document.getElementById('menu');
 
     for (const [name, desc, image] of sections) {
-        const sheetName = name.toLowerCase().replace(/\s+/g, '-');
+        const sheetName = name.toLowerCase().replace(/[^a-z0-9\-]/g, '-');
         const products = await loadCSVFromSheet(sheetName);
 
         const sectionCard = document.createElement('div');
