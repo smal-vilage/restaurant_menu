@@ -29,7 +29,7 @@ async function loadCSVFromSheet(sheetName) {
     document.body.appendChild(loadingOverlay);
 
     try {
-        const response = await fetch(getSheetURL(sheetName), { mode: 'no-cors' });
+        const response = await fetch(getSheetURL(sheetName));
         const text = await response.text();
         return text
             .trim()
