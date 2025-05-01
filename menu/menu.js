@@ -9,8 +9,27 @@ function cleanCSVCell(cell) {
 }
 
 async function loadCSVFromSheet(sheetName) {
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.id = 'loading-overlay';
+    loadingOverlay.style.position = 'fixed';
+    loadingOverlay.style.top = '0';
+    loadingOverlay.style.left = '0';
+    loadingOverlay.style.width = '100%';
+    loadingOverlay.style.height = '100%';
+    loadingOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    loadingOverlay.style.zIndex = '1050';
+    loadingOverlay.style.display = 'flex';
+    loadingOverlay.style.justifyContent = 'center';
+    loadingOverlay.style.alignItems = 'center';
+    loadingOverlay.innerHTML = `
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    `;
+    document.body.appendChild(loadingOverlay);
+
     try {
-        const response = await fetch(getSheetURL(sheetName));
+        const response = await fetch(getSheetURL(sheetName), { mode: 'no-cors' });
         const text = await response.text();
         return text
             .trim()
@@ -19,6 +38,8 @@ async function loadCSVFromSheet(sheetName) {
     } catch (e) {
         console.warn(`Failed to load sheet: ${sheetName}`, e);
         return [];
+    } finally {
+        document.body.removeChild(loadingOverlay);
     }
 }
 
