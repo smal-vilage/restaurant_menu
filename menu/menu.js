@@ -88,7 +88,7 @@ async function renderMenu() {
                     <div class="card-body">
                         <h5 class="card-title d-flex justify-content-between">
                             <span>${pname}</span>
-                            <span class="text-muted">$${price}</span>
+                            <span class="text-muted">د.ع${price}</span>
                         </h5>
                         <p class="card-text">${pdesc}</p>
                         <div class="product-images d-flex flex-wrap">
