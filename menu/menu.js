@@ -9,7 +9,7 @@ function cleanCSVCell(cell) {
 }
 
 function getGoogleDriveImageURL(fileId) {
-    return `https://drive.usercontent.google.com/download?id=${fileId}&export=view&authuser=0`;
+    return `https://drive.google.com/file/d/${fileId}/preview`;
 }
 
 async function loadCSVFromSheet(sheetName) {
@@ -82,7 +82,13 @@ async function renderMenu() {
         for (const [pname, pdesc, price, pic1, pic2, pic3, pic4] of products) {
             const pics = [pic1, pic2, pic3, pic4]
                 .filter(Boolean)
-                .map(fileId => `<img src="${getGoogleDriveImageURL(fileId)}" class="img-thumbnail me-2 mb-2" alt="${pname}" style="max-width: 100px;">`)
+                .map(fileId => `
+                    <iframe src="${getGoogleDriveImageURL(fileId)}" 
+                            class="me-2 mb-2" 
+                            style="max-width: 100px; max-height: 100px; border: none;" 
+                            allow="autoplay">
+                    </iframe>
+                `)
                 .join('');
 
             const productCol = document.createElement('div');
