@@ -8,6 +8,10 @@ function cleanCSVCell(cell) {
     return cell.replace(/^"(.*)"$/, '$1').trim();
 }
 
+function getGoogleDriveImageURL(fileId) {
+    return `https://drive.google.com/uc?export=view&id=${fileId}`;
+}
+
 async function loadCSVFromSheet(sheetName) {
     const loadingOverlay = document.createElement('div');
     loadingOverlay.id = 'loading-overlay';
@@ -53,9 +57,10 @@ async function renderMenu() {
 
         const sectionCard = document.createElement('div');
         sectionCard.className = 'col-12 section-card';
+        const imageURL = getGoogleDriveImageURL(image);
         sectionCard.innerHTML = `
             <div class="card shadow mb-4" id="section-${sheetName}">
-                <img src="${image}" class="card-img-top section-img" alt="${name}">
+                <img src="${imageURL}" class="card-img-top section-img" alt="${name}">
                 <div class="card-body">
                     <h2 class="card-title">${arabic_name}</h2>
                     <p class="card-text">${desc}</p>
@@ -77,7 +82,7 @@ async function renderMenu() {
         for (const [pname, pdesc, price, pic1, pic2, pic3, pic4] of products) {
             const pics = [pic1, pic2, pic3, pic4]
                 .filter(Boolean)
-                .map(src => `<img src="${src}" class="img-thumbnail me-2 mb-2" alt="${pname}" style="max-width: 100px;">`)
+                .map(fileId => `<img src="${getGoogleDriveImageURL(fileId)}" class="img-thumbnail me-2 mb-2" alt="${pname}" style="max-width: 100px;">`)
                 .join('');
 
             const productCol = document.createElement('div');
