@@ -9,7 +9,7 @@ function cleanCSVCell(cell) {
 }
 
 function getGoogleDriveImageURL(fileId) {
-    return `https://drive.google.com/file/d/${fileId}/preview`;
+    return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
 }
 
 async function loadCSVFromSheet(sheetName) {
@@ -83,11 +83,10 @@ async function renderMenu() {
             const pics = [pic1, pic2, pic3, pic4]
                 .filter(Boolean)
                 .map(fileId => `
-                    <iframe src="${getGoogleDriveImageURL(fileId)}" 
-                            class="me-2 mb-2" 
-                            style="max-width: 100px; max-height: 100px; border: none;" 
-                            allow="autoplay">
-                    </iframe>
+                    <img src="${getGoogleDriveImageURL(fileId)}" 
+                        class="img-thumbnail me-2 mb-2" 
+                        alt="${pname}" 
+                        style="max-width: 100px; max-height: 100px;">
                 `)
                 .join('');
 
