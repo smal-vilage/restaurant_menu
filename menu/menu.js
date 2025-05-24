@@ -69,24 +69,26 @@ async function renderMenu() {
             </div>
         `;
         menuContainer.appendChild(sectionCard);
-        
+
         const navLinks = document.getElementById('nav-links');
         const navItem = document.createElement('li');
         navItem.className = 'nav-item';
         navItem.innerHTML = `
-          <a class="nav-link" href="#section-${sheetName}">${name}</a>
+          <a class="nav-link" href="#section-${sheetName}">${arabic_name}</a>
         `;
         navLinks.appendChild(navItem);
-        
+
         const productRow = sectionCard.querySelector(`#products-${sheetName}`);
         for (const [pname, pdesc, price, pic1, pic2, pic3, pic4] of products) {
-            const pics = [pic1, pic2, pic3, pic4]
-                .filter(Boolean)
-                .map(fileId => `
-                    <img src="${getGoogleDriveImageURL(fileId)}" 
-                        class="img-thumbnail me-2 mb-2" 
-                        alt="${pname}" 
-                        style="max-width: 100px; max-height: 100px;">
+            const picsArr = [pic1, pic2, pic3, pic4].filter(Boolean);
+            const pics = picsArr
+                .map((fileId, idx) => `
+                    <img src="${getGoogleDriveImageURL(fileId)}"
+                        class="img-thumbnail me-2 mb-2 product-gallery-img"
+                        alt="${pname}"
+                        style="max-width: 100px; max-height: 100px; cursor:pointer;"
+                        data-gallery='${JSON.stringify(picsArr)}'
+                        data-index='${idx}'>
                 `)
                 .join('');
 
@@ -110,6 +112,39 @@ async function renderMenu() {
             productRow.appendChild(productCol);
         }
     }
+
+    // Gallery logic using Bootstrap Carousel
+    const galleryModal = new bootstrap.Modal(document.getElementById('galleryModal'));
+    const galleryCarouselInner = document.getElementById('galleryCarouselInner');
+    let galleryCarousel; // Will hold the Bootstrap Carousel instance
+
+    document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('product-gallery-img')) {
+            const gallery = JSON.parse(e.target.getAttribute('data-gallery'));
+            const index = parseInt(e.target.getAttribute('data-index'));
+
+            // Build carousel items
+            galleryCarouselInner.innerHTML = gallery.map((fileId, idx) => `
+                <div class="carousel-item${idx === index ? ' active' : ''}">
+                    <img src="${getGoogleDriveImageURL(fileId)}" class="d-block w-100" alt="">
+                </div>
+            `).join('');
+
+            // Show modal and reset carousel to the clicked image
+            galleryModal.show();
+
+            // Re-initialize carousel to set the correct active slide
+            if (galleryCarousel) {
+                galleryCarousel.dispose();
+            }
+            galleryCarousel = new bootstrap.Carousel(document.getElementById('galleryCarousel'), {
+                interval: false,
+                ride: false,
+                wrap: true
+            });
+            galleryCarousel.to(index);
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', renderMenu);
