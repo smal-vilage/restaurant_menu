@@ -1,82 +1,200 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Restaurant Menu</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" integrity="sha384-q8+l9TmX3RaSz3HKGBmqP2u5MkgeN7HrfOJBLcTgZsQsbrx8WqqxdA5PuwUV9WIx" crossorigin="anonymous">
-  <style>
-    .section-img {
-      max-height: 300px;
-      object-fit: cover;
-    }
-    .product-images img {
-      max-height: 100px;
-    }
-    body {
-      scroll-behavior: smooth;
-    }
-    .nav-scroll-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    .navbar-nav::-webkit-scrollbar {
-      display: none;
-    }
-    .navbar-nav {
-      scrollbar-width: none;
-    }
-    .navbar-nav .nav-item {
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-    }
-  </style>
+	<meta charset="UTF-8">
+	<title>Delicious - Cafe & Restaurant Mobile Template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1  maximum-scale=1 user-scalable=no">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="HandheldFriendly" content="True">
+	
+	<link rel="shortcut icon" href="img/favicon.png">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="css/slick-theme.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/owl.theme.css">
+	<link rel="stylesheet" href="css/owl.transitions.css">
+	<link rel="stylesheet" href="css/style.css">	
 </head>
-<body class="bg-dark-subtle">
+<body>
 
-  <nav class="navbar navbar-dark bg-dark sticky-top flex-column align-items-stretch py-2">
-    <div class="container-fluid flex-column align-items-stretch">
-      <a class="navbar-brand mb-2 text-center w-100" href="#">منيو المطعم الايطالي</a>
-      <div class="nav-scroll-wrapper flex-grow-1 w-100">
-        <ul class="navbar-nav flex-row flex-nowrap overflow-auto justify-content-center" id="nav-links" style="white-space:nowrap;">
-          <!-- Dynamic links will be injected here -->
-        </ul>
-      </div>
-    </div>
-  </nav>
+	<!-- navbar -->
+	<div class="navbar">
+		<div class="container">
+			<div class="site-title">
+				<a href="index.html" class="logo"><h1>Italian Restaurant</h1></a>
+			</div>
+		</div>
+	</div>
+	<!-- end navbar -->
 
-  <div class="container my-4">
-    <div class="row" id="menu">
-      <!-- Menu sections will be loaded here -->
-    </div>
-  </div>
+	<!-- slider -->
+	<div class="slider-slick app-pages">
+		<div class="slider-entry">
+			
+			<img src="img/slider1.jpg" alt="">
+			<div class="overlay"></div>
+			<div class="caption">
+				<div class="container">
+					<h2>Delicious Food & Drink</h2>
+					<p>Find your need now</p>
+				</div>
+			</div>
+		</div>
+		<div class="slider-entry">
+			<div class="overlay"></div>
+			<img src="img/slider2.jpg" alt="">
+			<div class="caption">
+				<div class="container">
+					<h2>Cafe & Restaurant</h2>
+					<p>Find your need now</p>
+				</div>
+			</div>
+		</div>
+		<div class="slider-entry">
+			<div class="overlay"></div>
+			<img src="img/slider3.jpg" alt="">
+			<div class="caption">
+				<div class="container">
+					<h2>Delicious & Tasteful</h2>
+					<p>Find your need now</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end slider -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="menu.js"></script>
+	<!-- offers -->
+	<div class="offers">
+		<div class="container">
+			<div class="row">
+				<div class="col s6">
+					<div class="entry">
+						<i class="fa fa-cutlery"></i>
+						<h5>Master Chef</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+					</div>
+				</div>
+				<div class="col s6">
+					<div class="entry">
+						<i class="fa fa-list"></i>
+						<h5>Many Menu</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s6">
+					<div class="entry">
+						<i class="fa fa-birthday-cake"></i>
+						<h5>Food Cake</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+					</div>
+				</div>
+				<div class="col s6">
+					<div class="entry">
+						<i class="fa fa-glass"></i>
+						<h5>Juice Drink</h5>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end offers -->
 
-  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-dark text-white">
-        <div class="modal-header border-0">
-          <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-0 d-flex justify-content-center align-items-center p-3" style="min-height:300px;">
-          <div id="galleryCarousel" class="carousel slide" data-bs-interval="false">
-            <div class="carousel-inner" id="galleryCarouselInner">
-              <!-- Slides will be injected here -->
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<!-- menu -->
+	<div class="menu app-section">
+		<div class="container">
+		<div class="app-title">
+			<h4>القائمة</h4>
+			<ul class="line">
+			<li><i class="fa fa-snowflake-o"></i></li>
+			<li class="line-center"><i class="fa fa-snowflake-o"></i></li>
+			<li><i class="fa fa-snowflake-o"></i></li>
+			</ul>
+		</div>
+		<div class="content">
+			<ul class="tabs" id="category-tabs">
+			<!-- Tabs will be injected here -->
+			</ul>
+			<div id="categories-content">
+			<!-- Category products will be injected here -->
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- end menu -->
+	
+	<!-- open hours -->
+	<div class="open-hours app-section">
+		<div class="container">
+			<div class="app-title">
+				<h4>Open Hours</h4>
+				<ul class="line">
+					<li><i class="fa fa-snowflake-o"></i></li>
+					<li class="line-center"><i class="fa fa-snowflake-o"></i></li>
+					<li><i class="fa fa-snowflake-o"></i></li>
+				</ul>
+			</div>
+			<div class="entry">
+				<h5>Monday - Saturday</h5>
+				<h6>07.00 AM - 12.00 PM</h6>
+				<div class="dividing"></div>
+				<h5>Sunday</h5>
+				<h6>Open 24 Hours</h6>
+			</div>
+		</div>
+	</div>
+	<!-- end open hours -->
+
+	<!-- footer -->
+	<footer>
+		<div class="container">
+			<h6>Find & follow us</h6>
+			<ul class="icon-social">
+				<li class="facebook"><a href=""><i class="fa fa-facebook"></i></a></li>
+				<li class="twitter"><a href=""><i class="fa fa-twitter"></i></a></li>
+				<li class="google"><a href=""><i class="fa fa-google"></i></a></li>
+				<li class="instagram"><a href=""><i class="fa fa-instagram"></i></a></li>
+				<li class="rss"><a href=""><i class="fa fa-rss"></i></a></li>
+			</ul>
+			<div class="tel-fax-mail">
+				<ul>
+					<li><span>Tel:</span> 900000002</li>
+					<li><span>Fax:</span> 0400000098</li>
+					<li><span>Email:</span> info@youremail.com</li>
+				</ul>
+			</div>
+			<div class="ft-bottom">
+				<span>Copyright © 2025 All Rights Reserved </span>
+			</div>
+		</div>
+	</footer>
+	<!-- end footer -->
+	
+	<!-- Product Modal -->
+	<div id="productModal" class="modal">
+		<div class="modal-content" id="productModalContent">
+		<!-- Product details will be injected here -->
+		</div>
+		<div class="modal-footer">
+		<a href="#!" class="modal-close button">إغلاق</a>
+		</div>
+	</div>
+
+	<!-- script -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/custom.js"></script>
+  	<script src="js/menu.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.modal').modal();
+		});
+  	</script>
 </body>
 </html>
