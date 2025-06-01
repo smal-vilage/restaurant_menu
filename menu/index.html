@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="HandheldFriendly" content="True">
-	
+
 	<link rel="shortcut icon" href="img/favicon.png">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/materialize.min.css">
@@ -15,17 +15,21 @@
 	<link rel="stylesheet" href="css/owl.carousel.css">
 	<link rel="stylesheet" href="css/owl.theme.css">
 	<link rel="stylesheet" href="css/owl.transitions.css">
-	<link rel="stylesheet" href="css/style.css">	
+	<link rel="stylesheet" href="css/style.css">
+	
 	<style>
-		.menu-container {
-			width: 100%;
-			height: 90vh;
-			margin-top: 20px;
+		.menu-gallery {
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 20px;
 		}
-		iframe {
+		.menu-gallery img {
 			width: 100%;
-			height: 100%;
-			border: none;
+			max-width: 900px;
+			border-radius: 10px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 		}
 	</style>
 </head>
@@ -41,11 +45,18 @@
 	</div>
 	<!-- end navbar -->
 
-	<!-- menu section -->
-	<div class="menu-container">
-		<iframe src="menu%20jor's%20hacos.pdf" type="application/pdf"></iframe>
+	<!-- menu image gallery -->
+	<div class="menu-gallery">
+		<!-- 25 images inserted dynamically -->
+		<script>
+			for (let i = 1; i <= 25; i++) {
+				const padded = String(i).padStart(3, '0');
+				const filename = `img/menu jor's hacos_${padded}.png`;
+				document.write(`<img src="${filename}" alt="Menu Page ${i}">`);
+			}
+		</script>
 	</div>
-	<!-- end menu section -->
+	<!-- end gallery -->
 
 </body>
 </html>
