@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Jorshacos - Cafe & Restaurant</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1  maximum-scale=1 user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="HandheldFriendly" content="True">
 	
@@ -16,6 +16,18 @@
 	<link rel="stylesheet" href="css/owl.theme.css">
 	<link rel="stylesheet" href="css/owl.transitions.css">
 	<link rel="stylesheet" href="css/style.css">	
+	<style>
+		.menu-container {
+			width: 100%;
+			height: 90vh;
+			margin-top: 20px;
+		}
+		iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+	</style>
 </head>
 <body>
 
@@ -29,165 +41,11 @@
 	</div>
 	<!-- end navbar -->
 
-	<!-- slider -->
-	<div class="slider-slick app-pages">
-		<div class="slider-entry">
-			
-			<img src="img/slider1.jpg" alt="">
-			<div class="overlay"></div>
-			<div class="caption">
-				<div class="container">
-					<h2>Delicious Food & Drink</h2>
-					<p>Find your need now</p>
-				</div>
-			</div>
-		</div>
-		<div class="slider-entry">
-			<div class="overlay"></div>
-			<img src="img/slider2.jpg" alt="">
-			<div class="caption">
-				<div class="container">
-					<h2>Cafe & Restaurant</h2>
-					<p>Find your need now</p>
-				</div>
-			</div>
-		</div>
-		<div class="slider-entry">
-			<div class="overlay"></div>
-			<img src="img/slider3.jpg" alt="">
-			<div class="caption">
-				<div class="container">
-					<h2>Delicious & Tasteful</h2>
-					<p>Find your need now</p>
-				</div>
-			</div>
-		</div>
+	<!-- menu section -->
+	<div class="menu-container">
+		<iframe src="menu%20jor's%20hacos.pdf" type="application/pdf"></iframe>
 	</div>
-	<!-- end slider -->
+	<!-- end menu section -->
 
-	<!-- offers -->
-	<div class="offers">
-		<div class="container">
-			<div class="row">
-				<div class="col s6">
-					<div class="entry">
-						<i class="fa fa-cutlery"></i>
-						<h5>Master Chef</h5>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="entry">
-						<i class="fa fa-list"></i>
-						<h5>Many Menu</h5>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col s6">
-					<div class="entry">
-						<i class="fa fa-birthday-cake"></i>
-						<h5>Food Cake</h5>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="entry">
-						<i class="fa fa-glass"></i>
-						<h5>Juice Drink</h5>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end offers -->
-
-	<!-- menu -->
-	<div class="menu app-section">
-		<div class="container">
-		<div class="app-title">
-			<h4>القائمة</h4>
-			<ul class="line">
-			<li><i class="fa fa-snowflake-o"></i></li>
-			<li class="line-center"><i class="fa fa-snowflake-o"></i></li>
-			<li><i class="fa fa-snowflake-o"></i></li>
-			</ul>
-		</div>
-		<div class="content">
-			<ul class="tabs" id="category-tabs">
-			<!-- Tabs will be injected here -->
-			</ul>
-			<div id="categories-content">
-			<!-- Category products will be injected here -->
-			</div>
-		</div>
-		</div>
-	</div>
-	<!-- end menu -->
-	
-	<!-- open hours -->
-	<div class="open-hours app-section">
-		<div class="container">
-			<div class="app-title">
-				<h4>Open Hours</h4>
-				<ul class="line">
-					<li><i class="fa fa-snowflake-o"></i></li>
-					<li class="line-center"><i class="fa fa-snowflake-o"></i></li>
-					<li><i class="fa fa-snowflake-o"></i></li>
-				</ul>
-			</div>
-			<div class="entry">
-				<h5>All Days</h5>
-				<h6>7.00 AM - 2.00 AM</h6>
-			</div>
-		</div>
-	</div>
-	<!-- end open hours -->
-
-	<!-- footer -->
-	<footer>
-		<div class="container">
-			<h6>Find & follow us</h6>
-			<ul class="icon-social">
-				<li class="facebook"><a href="https://www.facebook.com/share/1AZCfp7vee/"><i class="fa fa-facebook"></i></a></li>
-				<li class="instagram"><a href="https://www.instagram.com/jorshacos.cafe.iq"><i class="fa fa-instagram"></i></a></li>
-			</ul>
-			<div class="tel-fax-mail">
-				<ul>
-					<li><span>Tel:</span> 6460</li>
-					<li><span>Email:</span> cafe@jorshacos.com</li>
-				</ul>
-			</div>
-			<div class="ft-bottom">
-				<span>Copyright © 2025 All Rights Reserved </span>
-			</div>
-		</div>
-	</footer>
-	<!-- end footer -->
-	
-	<!-- Product Modal -->
-	<div id="productModal" class="modal">
-		<div class="modal-content" id="productModalContent">
-		<!-- Product details will be injected here -->
-		</div>
-		<div class="modal-footer">
-		<a href="#!" class="modal-close button">إغلاق</a>
-		</div>
-	</div>
-
-	<!-- script -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/materialize.min.js"></script>
-	<script src="js/slick.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/custom.js"></script>
-  	<script src="js/menu.js"></script>
-	<script>
-		$(document).ready(function(){
-			$('.modal').modal();
-		});
-  	</script>
 </body>
 </html>
