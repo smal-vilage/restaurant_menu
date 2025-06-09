@@ -11,33 +11,38 @@ const sections = {
 	"BEVANDE FREDDI": [19, 20, 21, 22, 23, 24],
 };
 
+
 const sectionBar = document.getElementById("sectionBar");
 const gallery = document.getElementById("menuGallery");
 
-// Render buttons for each section
-Object.entries(sections).forEach(([name, indices]) => {
-	const btn = document.createElement("button");
-	btn.textContent = name;
-	btn.addEventListener("click", () => {
-		const el = document.getElementById(`section-${name}`);
-		if (el) el.scrollIntoView({ behavior: "smooth" });
-	});
-	sectionBar.appendChild(btn);
-});
+const titleImg = document.createElement("img");
+titleImg.src = `img/menu jor's hacos_001.png`;
+titleImg.alt = "Title Page";
+gallery.appendChild(titleImg);
 
-// Render images with section anchors
-let imageIndex = 1;
-for (const [sectionName, imageList] of Object.entries(sections)) {
+for (const section in sections) {
+	const button = document.createElement("button");
+	button.textContent = section;
+	button.onclick = () => {
+		const target = document.getElementById(`section-${section}`);
+		if (target) {
+			target.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+	sectionBar.appendChild(button);
+}
+
+for (const [section, indexes] of Object.entries(sections)) {
 	const anchor = document.createElement("div");
-	anchor.id = `section-${sectionName}`;
-	anchor.style.scrollMarginTop = "100px"; // offset for fixed navbar
+	anchor.id = `section-${section}`;
+	anchor.style.scrollMarginTop = "100px";
 	gallery.appendChild(anchor);
 
-	imageList.forEach((i) => {
+	indexes.forEach(i => {
 		const padded = String(i).padStart(3, '0');
 		const img = document.createElement("img");
 		img.src = `img/menu jor's hacos_${padded}.png`;
-		img.alt = `${sectionName} Page ${i}`;
+		img.alt = `${section} Page ${i}`;
 		gallery.appendChild(img);
 	});
 }
