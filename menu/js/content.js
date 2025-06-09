@@ -3,12 +3,12 @@ const sections = {
 	"ANTIPASTI": [3, 4],
 	"APPETIZER": [5],
 	"PASTA PIATTI": [6, 7, 8],
-	"RISOTTO PIATTI": [8],
-	"SECONDI PIATTI": [9],
-	"PIZZA": [10, 11, 12],
-	"DOLCI": [13, 14, 15],
-	"BEVANDE CALDI": [16, 17],
-	"BEVANDE FREDDI": [18, 19, 21, 22, 23, 24],
+	"RISOTTO PIATTI": [9],
+	"SECONDI PIATTI": [10],
+	"PIZZA": [11, 12, 13],
+	"DOLCI": [14, 15, 16],
+	"BEVANDE CALDI": [17, 18],
+	"BEVANDE FREDDI": [19, 21, 22, 23, 24, 25],
 };
 
 const sectionBar = document.getElementById("sectionBar");
