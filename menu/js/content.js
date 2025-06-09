@@ -1,11 +1,14 @@
-// Define menu sections and their corresponding image indexes
 const sections = {
-	"Breakfast": [1, 2],
-	"Sandwiches": [3, 4, 5],
-	"Grills": [6, 7],
-	"Drinks": [8, 9],
-	"Desserts": [10],
-	// Add more as needed
+	"LA MINESTRA": [1],
+	"ANTIPASTI": [2,3],
+	"APPETIZER": [4],
+	"PASTA PIATTI": [5,6,7],
+	"RISOTTO PIATTI": [7],
+	"SECONDI PIATTI": [8],
+	"PIZZA": [9,10,11],
+	"DOLCI": [12,13,14],
+	"BEVANDE CALDI": [15,16],
+	"BEVANDE FREDDI": [17,18,20,21,22,23],
 };
 
 const sectionBar = document.getElementById("sectionBar");
