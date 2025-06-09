@@ -8,7 +8,7 @@ const sections = {
 	"PIZZA": [11, 12, 13],
 	"DOLCI": [14, 15, 16],
 	"BEVANDE CALDI": [17, 18],
-	"BEVANDE FREDDI": [19, 21, 22, 23, 24, 25],
+	"BEVANDE FREDDI": [19, 21, 22, 23, 24],
 };
 
 const sectionBar = document.getElementById("sectionBar");
