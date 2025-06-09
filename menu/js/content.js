@@ -1,14 +1,14 @@
 const sections = {
-	"LA MINESTRA": [1],
-	"ANTIPASTI": [2,3],
-	"APPETIZER": [4],
-	"PASTA PIATTI": [5,6,7],
-	"RISOTTO PIATTI": [7],
-	"SECONDI PIATTI": [8],
-	"PIZZA": [9,10,11],
-	"DOLCI": [12,13,14],
-	"BEVANDE CALDI": [15,16],
-	"BEVANDE FREDDI": [17,18,20,21,22,23],
+	"LA MINESTRA": [2],
+	"ANTIPASTI": [3, 4],
+	"APPETIZER": [5],
+	"PASTA PIATTI": [6, 7, 8],
+	"RISOTTO PIATTI": [8],
+	"SECONDI PIATTI": [9],
+	"PIZZA": [10, 11, 12],
+	"DOLCI": [13, 14, 15],
+	"BEVANDE CALDI": [16, 17],
+	"BEVANDE FREDDI": [18, 19, 21, 22, 23, 24],
 };
 
 const sectionBar = document.getElementById("sectionBar");
